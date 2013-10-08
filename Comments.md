@@ -23,8 +23,7 @@ window.MakeKeyAndOrderFront ();
 
 ### Multiline comments
 
-For long, multiline comments, stick to `//`, because large comments tend to grow from smaller ones,
-and it's simpler to always use `//` than to switch to `/* ... */` when a comment becomes "long".
+For long, multiline comments, stick to `//`:
 
 ```csharp
 // Sartorial leggings ennui before they sold out banjo, lo-fi Truffaut
@@ -32,3 +31,5 @@ and it's simpler to always use `//` than to switch to `/* ... */` when a comment
 // meh fingerstache DIY church-key keytar, Vice pug quinoa seitan. Blog photo
 // booth Pinterest letterpress kogi leggings aesthetic irony.
 ```
+
+Large comments tend to grow from smaller ones, and it's simpler to always use `//` than to switch to `/* ... */` when a comment becomes "long".
