@@ -1,3 +1,4 @@
+* [Comments](Comments.md)
 * [Lambdas](Lambdas.md)
 
 ### using Statements
@@ -489,42 +490,6 @@ For any new files, please use a descriptive introduction, like this:
 ```
 
 If you are modyfing someone else's code, and your contribution is significant, please add yourself to the Authors list.
-
-### Comments
-
-Comments begin with `// ` (note the single space), and use sentence casing, grammar, and proper spelling.
-
-```csharp
-// Great:
-// Verify that the client and server states are consistent.
-
-// Bad - missing space:
-//Verify that the client and server states are consistent.
-
-
-// Bad - not a sentence:
-// verify client server states
-```
-
-If your comment just paraphrases code, remove it:
-
-```csharp
-// Bad
-// Makes the window key and orders it front.
-window.MakeKeyAndOrderFront ();
-```
-
-### Multiline comments
-
-For long, multiline comments use the following style:
-
-```csharp
-/*
- * Blah
- * Blah again
- * and another Blah
- */
-```
 
 ### Casing
 
