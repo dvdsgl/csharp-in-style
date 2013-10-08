@@ -1,6 +1,6 @@
 # Comments
 
-Comments begin with `// ` (note the single space), and use sentence casing, grammar, and proper spelling.
+Comments begin with `//` followed by a single space, use sentence casing, and exhibit proper spelling and grammar.
 
 ```csharp
 // Great:
