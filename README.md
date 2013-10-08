@@ -54,8 +54,8 @@ Larger enums should list entries on separate lines and always end in a comma:
 
 ```csharp
 public enum StringSplitOptions {
-	None                = 0,
-	RemoveEmptyEntries  = 1,
+	None = 0,
+	RemoveEmptyEntries = 1,
 }
 ```
 
@@ -106,10 +106,10 @@ var entries = new Dictionary<string, int> () {
 };
 
 var lsCommand = new ProcessStartInfo ("ls", "/") {
-	RedirectStandardInput   = true,
-	RedirectStandardOutput  = true,
-	RedirectStandardError   = true,
-	UseShellExecute         = false,
+	RedirectStandardInput = true,
+	RedirectStandardOutput = true,
+	RedirectStandardError = true,
+	UseShellExecute = false,
 };
 ```
 
@@ -650,25 +650,6 @@ void M ()
 	IEnumerable<int> items = Enumerable.Range (0, 100)
 		.Where (e => (e % 2) == 0)
 		.Select (e => e*2);
-}
-```
-
-_Consider_ lining up variable names and assignment expressions, including in class fields. When doing so, use spaces -- _not_ tabs -- to align identifiers. (Once a non-tab character has been used on a line, tab should not be used again. `git diff` will hilight such lines in "red.")
-
-```csharp
-class C {
-
-	string          Name    = "name";
-	List<string>    Values  = new List<string> ();
-
-	void M ()
-	{
-		var url               = new Uri ("http://www.example.com");
-		var request           = (HttpWebRequest) WebRequest.Create (url);
-		request.Method        = "GET";
-		WebResponse response  = request.GetResponse ();
-		...
-	}
 }
 ```
 
