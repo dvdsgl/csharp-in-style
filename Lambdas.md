@@ -10,6 +10,40 @@ Func<int, int> square = i => i * i;
 Func<int, int> square = i=>i * i;
 ```
 
+If your lambda takes a single argument, omit the parentheses around the argument list:
+
+```csharp
+// Great!
+var admins = Users.Select (user => user.IsAdministrator);
+
+// Silly.
+var admins = Users.Select ((user) => user.IsAdministrator);
+```
+
+Whenever possible, omit types from lambda argument lists, and use simple names:
+
+```csharp
+// Great:
+list.OnScroll += (sender, e) => {
+	...
+};
+
+// Passé:
+list.OnScroll += (object sender, EventArgs e) => {
+	...
+};
+```
+
+When the body of a lambda is a simple statement or expression, don't use a block:
+
+```csharp
+// Excellent!
+var averageSalary = employees.Average (employee => employee.Salary);
+
+// Inconceivable!
+var averageSalary = employees.Average (employee => { return employee.Salary; });
+```
+
 When the body of the lambda is a block, put the opening brace on the same line as the `=>`, indent the body of the block,
 and close the block at the same level of indentation as the line containing the opening brace:
 
@@ -50,40 +84,6 @@ Always prefer lambdas, `Func<>`, and `Action<>` types to `delegate`. The only re
 thing.EventWithSenderAndEventArgs += delegate {
 	Console.WriteLine ("EventWithSenderAndEventArgs raised.");
 };
-```
-
-If your lambda takes a single argument, omit the parentheses around the argument list:
-
-```csharp
-// Great!
-var admins = Users.Select (user => user.IsAdministrator);
-
-// Silly.
-var admins = Users.Select ((user) => user.IsAdministrator);
-```
-
-Whenever possible, omit types from lambda argument lists, and use simple names:
-
-```csharp
-// Great:
-list.OnScroll += (sender, e) => {
-	...
-};
-
-// Passé:
-list.OnScroll += (object sender, EventArgs e) => {
-	...
-};
-```
-
-When the body of a lambda is a simple statement or expression, don't use a block:
-
-```csharp
-// Excellent!
-var averageSalary = employees.Average (employee => employee.Salary);
-
-// Inconceivable!
-var averageSalary = employees.Average (employee => { return employee.Salary; });
 ```
 
 It is acceptable to use single-character argument names in lambdas if the receiver is an `IEnumerable` and is named in such a way as to make the lambda argument obvious, and the lambda argument name is the first character of the receiver's identifier:
