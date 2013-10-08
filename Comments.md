@@ -9,7 +9,6 @@ Comments begin with `//` followed by a single space, use sentence casing, and ex
 // Bad - missing space:
 //Verify that the client and server states are consistent.
 
-
 // Bad - not a sentence:
 // verify client server states
 ```
