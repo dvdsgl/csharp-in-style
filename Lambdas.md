@@ -32,6 +32,12 @@ list.OnScroll += (sender, e) => {
 list.OnScroll += (object sender, EventArgs e) => {
 	...
 };
+
+// No! Parameter name is needlessly complex:
+sqlDatabaseAdaptors.Select (sqlDatabaseAdaptor => sqlDatabaseAdaptors.Id);
+
+// Much better. We have enough context from the larger identifier:
+sqlDatabaseAdaptors.Select (adaptor => adaptor.Id);
 ```
 
 When the body of a lambda is a simple statement or expression, don't use a block:
