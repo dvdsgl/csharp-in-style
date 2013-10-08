@@ -100,4 +100,7 @@ var averageSalary = employees.Average (e => e.Salary);
 
 // Acceptable:
 var averageSalary = employees.Average (employee => employee.Salary);
+
+// Wrong - parameter name doesn't correspond to collection name:
+var averageSalary = employees.Average (x => x.Salary);
 ```
