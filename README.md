@@ -73,7 +73,7 @@ var users = new Dictionary<UserId, User> ();
 Dictionary<UserId, User> users = new Dictionary<UserId, User> ();
 ```
 
-Don't use `var` for capturing the return type of a method or property when the type is not apparent:
+Don't use `var` for capturing the return type of a method or property when the type is not evident:
 
 ```csharp
 // Horrendous.
