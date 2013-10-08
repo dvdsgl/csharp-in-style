@@ -10,6 +10,40 @@ Func<int, int> square = i => i * i;
 Func<int, int> square = i=>i * i;
 ```
 
+When the body of the lambda is a block, put the opening brace on the same line as the `=>`, indent the body of the block,
+and close the block at the same level of indentation as the line containing the opening brace:
+
+```csharp
+// Ideal:
+people.ForEach (person => {
+	person.BrushTeeth ();
+	person.CallMom ();
+	person.RegisterToVote ();
+});
+
+// No! Improperly positioned opening brace:
+people.ForEach (person =>
+{
+	person.BrushTeeth ();
+	person.CallMom ();
+	person.RegisterToVote ();
+});
+
+// No! Improperly positioned closing brace:
+people.ForEach (person => {
+	person.BrushTeeth ();
+	person.CallMom ();
+	person.RegisterToVote ();
+	}
+);
+
+// No! Bad indentation:
+people.ForEach (person => { person.BrushTeeth ();
+                            person.CallMom ();
+                            person.RegisterToVote ();
+                          });
+```
+
 Always prefer lambdas, `Func<>`, and `Action<>` types to `delegate`. The only recommended use of `delegate` is when the body of your anonymous method doesn't reference any of its arguments:
 
 ```csharp
