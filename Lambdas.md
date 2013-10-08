@@ -34,7 +34,7 @@ list.OnScroll += (object sender, EventArgs e) => {
 };
 
 // No! Parameter name is needlessly complex:
-sqlDatabaseAdaptors.Select (sqlDatabaseAdaptor => sqlDatabaseAdaptors.Id);
+sqlDatabaseAdaptors.Select (sqlDatabaseAdaptor => sqlDatabaseAdaptor.Id);
 
 // Much better. We have enough context from the larger identifier:
 sqlDatabaseAdaptors.Select (adaptor => adaptor.Id);
