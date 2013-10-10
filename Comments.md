@@ -33,3 +33,5 @@ For long comments, stick to `//`:
 ```
 
 Long comments tend to grow from smaller ones, so it's simpler to always use `//` than to switch to `/* ... */` when a comment becomes "long".
+
+The only recommended use of `/* ... */`-style comments is for commenting out code. Please do not comment out multiple lines of code with `//`. You should avoid commenting out code anyway, prefering version control or other methods.
