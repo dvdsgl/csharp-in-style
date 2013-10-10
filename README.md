@@ -5,7 +5,7 @@
 * Assume your reader knows C#.
 * Prefer clarity to performance.
 * Avoid premature optimization.
-* Take pride in your code and comments.
+* Write comments that people want to read.
 
 ## Specific Guides
 
