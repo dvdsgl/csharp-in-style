@@ -1,11 +1,13 @@
 ## Guiding Principles
 
+* Be consistent.
+* Don't rewrite existing code to follow this guide.
+* Don't violate a guideline without a good reason.
+* A reason is good when you can convince a teammate.
 * Assume your reader knows C# and English.
-* Verbose != readable. Keep code simple and clear.
 * Prefer clarity to 'performance'.
 * Prefer clarity to .NET dogma.
 * Write comments that people want to read, with correct spelling and grammar.
-* Do not reformat existing code to meet these guidelines.
 
 ## Specific Guides
 
@@ -697,10 +699,6 @@ void M ()
 }
 ```
 
-### Baroque Coding
+## Credits
 
-Baroque coding is discouraged.
-
-We discourage the use of the "private" keyword to flag internal fields or methods since this is the default visibility mode in C#. The keyword exists because of Java. Avoid it, it merely is more line noise for people that are reading your code.
-
-But the same principle applies everywhere else in Mono. Avoid complex code or redundant code for the sake of it. Try to write the minimum amount of text possible.
+This guide was adapted from the [Mono coding guidelines](http://www.mono-project.com/Coding_Guidelines) with inspiration from thoughtbot's excellent [guide for programming in style](https://github.com/thoughtbot/guides);
