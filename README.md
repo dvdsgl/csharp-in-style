@@ -560,15 +560,36 @@ void Method (string my_string)
 
 ### Instance Fields
 
-Don't use  `m_` or `_` as prefixes for instance fields. Just use normal parameter naming conventions.
+Don't use  `m_` or `_` as prefixes for instance fields. Just use normal parameter naming conventions:
 
 ```csharp
 // Perfect.
 class Person
 {
-	string name, email;
+	string name;
 }
 
+// Wrong.
+class Person
+{
+	string m_name;
+}
+```
+
+Don't write `private` for private members, as this is the default visibility in C#:
+
+```csharp
+// Perfect.
+class Person
+{
+	string name;
+}
+
+// Wrong.
+class Person
+{
+	private string name;
+}
 ```
 
 An exception to this rule is serializable classes. In this case, if we desire to have our serialized data be compatible with Microsoft's, we must use the same field name.
