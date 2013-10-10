@@ -1,5 +1,15 @@
+## Guiding Principles
+
+* Use spaces and indentation precisely.
+* Keep code tidy and simple, but never cryptic.
+* Assume your reader knows C#.
+
+## Specific Guides
+
 * [Comments](Comments.md)
 * [Lambdas](Lambdas.md)
+
+## General Guidelines
 
 ### using Statements
 
