@@ -1,6 +1,6 @@
 ## Guiding Principles
 
-* Assume your reader knows C#.
+* Assume your reader knows C# and English.
 * Verbose != readable. Keep code simple and clear.
 * Prefer clarity to 'performance'.
 * Prefer clarity to .NET dogma.
