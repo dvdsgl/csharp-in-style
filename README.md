@@ -1,7 +1,7 @@
 ## Guiding Principles
 
 * Assume your reader knows C#.
-* Verbosity does not imply readability, nor does clarity imply brevity. Keep code simple and clear.
+* Verbose != readable. Keep code simple and clear.
 * Prefer clarity to 'performance'.
 * Prefer clarity to .NET dogma.
 * Write comments that people want to read.
