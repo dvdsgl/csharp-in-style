@@ -95,24 +95,38 @@ database.UpdateUserIds (new [] { 1, 2, 3 });
 
 ### Object and Collection Initializers
 
-Prefer object and collection initializers.
-
-When using object and collection initializers, every expression should be on a separate line, and every line should end with a comma `,`. Try to line up property assignments in object initializers. ( **Rationale**: When new values are added to the end, there won't be "noise" to add a comma to the previous enum member.)
+Use object and collection initializers. Every expression should be on a separate line, and every line should end with a comma `,`:
 
 ```csharp
+// Very nice collection initializer.
 var entries = new Dictionary<string, int> () {
 	{ "key1", 1 },
-	{ "key2", 2 },  // All entries end with ','
+	{ "key2", 2 },
 };
 
-var lsCommand = new ProcessStartInfo ("ls", "/") {
-	RedirectStandardInput = true,
-	RedirectStandardOutput = true,
-	RedirectStandardError = true,
-	UseShellExecute = false,
+// Bad – multiple entries on one line.
+var entries = new Dictionary<string, int> () {
+	{ "key1", 1 }, { "key2", 2 },
 };
 ```
 
+Structure initilizers in decreasing order by line length to create a neat pyramid shape:
+
+```csharp
+// Very nice pyramid shape.
+var contact = new Person {
+	Name = "David Siegel",
+	SocialSecurityNumber = 123456789,
+	Address = "1234 Montgomery Circle Drive East",
+};
+
+// Wrong - inverted pyramids are unstable.
+var contact = new Person {
+	Address = "1234 Montgomery Circle Drive East",
+	SocialSecurityNumber = 123456789,
+	Name = "David Siegel",
+};
+```
 ### Indentation
 
 `switch` statements have the case at the same indentation as the `switch`:
