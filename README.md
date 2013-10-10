@@ -1,7 +1,6 @@
 ## Guiding Principles
 
 * Assume your reader knows C#.
-* Use spaces and indentation precisely.
 * Keep code tidy and simple, but never cryptic.
 * Prefer clarity to 'performance'.
 * Prefer clarity to .NET dogma.
