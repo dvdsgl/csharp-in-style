@@ -57,7 +57,8 @@ Prune redundant namespaces aggressively.
 ### Declaring Types
 
 ```csharp
-class MyClass : BaseClass, IDoesThis {
+class MyClass : BaseClass, IDoesThis
+{
 }
 ```
 
@@ -74,7 +75,8 @@ enum Edge { Left, Right, Bottom, Top }
 Larger enums should list entries on separate lines and always end in a comma:
 
 ```csharp
-public enum StringSplitOptions {
+enum StringSplitOptions
+{
 	None = 0,
 	RemoveEmptyEntries = 1,
 }
@@ -305,69 +307,69 @@ When defining a method, use the C style for brace placement, that means, use a n
 good:
 
 ```csharp
-void Method ()
+// Correct.
+void LaunchRockets ()
 {
 }
-```
 
-bad:
-
-```csharp
-void Method () {
+// Wrong.
+void LaunchRockets () {
 }
 ```
 
-Properties and indexers are an exception, keep the brace on the same line as the property declaration.
-
-Rationale: this makes it visually simple to distinguish them.
-
-good:
+Properties and indexers are an exception, keep the brace on the same line as the property declaration. This makes it visually simple to distinguish them.
 
 ```csharp
-int Property {
+// Perfect.
+double AverageAge {
 	get {
-		return value;
+		return people.Average (p => p.Age);
+	}
+}
+
+
+// Wrong.
+double AverageAge
+{
+	get {
+		return people.Average (p => p.Age);
 	}
 }
 ```
 
-bad:
 
-```csharp
-int Property 
-{
-	get {
-		return value;
-	}
-}
-```
-
-Notice how the accessor "get" also keeps its brace on the same line.
+Notice how  `get` keeps its brace on the same line.
 
 For very small properties, you can compress things:
 
-ok:
 
 ```csharp
+// Preferred.
 int Property {
 	get { return value; }
 	set { x = value; }
 }
-```
 
-Empty methods: They should have the body of code using two lines, in consistency with the rest:
-
-good:
-
-```csharp
-void EmptyMethod ()
-{
+// Acceptable.
+int Property {
+	get {
+		return value;
+	}
+	set {
+		x = value;
+	}
 }
 ```
 
-bad:
+Empty methods should have the body of code using two lines, in consistency with the rest:
 
 ```csharp
+// Good.
+void EmptyMethod ()
+{
+}
+
+// These are wrong.
 void EmptyMethod () {}
 void EmptyMethod () {
 }
