@@ -653,7 +653,7 @@ class Message {
 
 Line length: The line length for C# source code is 80 columns.
 
-If your function declaration arguments go beyond this point, please place them on new lines, indenting by two tab stops (preferred), or align with the opening brace (acceptable). ( **Rationale** : By not aligning to the opening brace, you can refactor/rename the method in the future without "screwing up" the indentation of all remaining parameters.)
+If your function declaration arguments go beyond this point, please place them on new lines, indenting by two tab stops (preferred), or align with the opening brace (acceptable). (**Rationale**: By not aligning to the opening brace, you can refactor/rename the method in the future without "screwing up" the indentation of all remaining parameters.)
 
 When aligning to the opening brace, use the same number of tabs used on the first line followed by enough spaces to align the arguments. This ensures that the arguments will remain aligned when viewed with a different tabsize. In the following example, the line that declares argc is indented with 2 tabs and 14 spaces:
 
@@ -675,7 +675,7 @@ namespace N {
 }
 ```
 
-When a _condition_ for a branch or loop construct requires multiple lines, each line should be indented by two tab stops. ( **Rationale** : it keeps the condition from looking like it's part of the body.) Complicated and nested expressions should use spaces to align with the originating expression. Boolean operators should be at the end of the line.
+When a _condition_ for a branch or loop construct requires multiple lines, each line should be indented by two tab stops. (**Rationale**: it keeps the condition from looking like it's part of the body.) Complicated and nested expressions should use spaces to align with the originating expression. Boolean operators should be at the end of the line.
 
 ```csharp
 void M ()
