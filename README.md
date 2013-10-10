@@ -5,7 +5,6 @@
 * Assume your reader knows C#.
 * Prefer clarity to performance.
 * Prefer clarity to .NET dogma.
-* Avoid premature optimization.
 * Write comments that people want to read.
 
 ## Specific Guides
