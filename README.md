@@ -3,7 +3,7 @@
 * Be consistent.
 * Don't rewrite existing code to follow this guide.
 * Don't violate a guideline without a good reason.
-* A reason is good when you can convince a teammate.
+* A reason is good when you can convince a teammate, not just when you like it.
 * Assume your reader knows C# and English.
 * Prefer clarity to 'performance'.
 * Prefer clarity to .NET dogma.
