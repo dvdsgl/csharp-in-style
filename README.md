@@ -193,9 +193,7 @@ Initialize(database);
 products[i];
 ```
 
-However, do not put a space before the left angle bracket in a generic type instantiation:
-
-good:
+Do not put a space before the left angle bracket in a generic type:
 
 ```csharp
 // Perfect.
@@ -290,7 +288,6 @@ if (a) {
 		code ();
 }
 
-
 // Wrong.
 if (a)
 	if (b)
@@ -375,7 +372,7 @@ void EmptyMethod ()
 Generic method type parameter constraints are one separate lines, one line per type parameter, before the opening brace:
 
 ```csharp
-static bool TryParse<TEnum>(string value, out TEnum result)
+static bool TryParse<TEnum> (string value, out TEnum result)
 	where TEnum : struct
 {
 	...
