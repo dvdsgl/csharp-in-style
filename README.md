@@ -236,66 +236,60 @@ var person = (Person)sender;
 
 Inside a code block, put the opening brace on the same line as the statement:
 
-good:
-
 ```csharp
-if (a) {
-	code ();
-	code ();
+// Lovely.
+if (you.Love (someone)) {
+	someone.SetFree ();
 }
-```
 
-bad:
-
-```csharp
-if (a) 
+// Wrong.
+if (you.Love (someone))
 {
-	code ();
-	code ();
+	someone.SetFree ();
 }
 ```
 
-Omitting braces for single line if statements is acceptable, however braces are always acceptable:
-
-acceptable:
+Omitting braces for single line if statements is fine, however braces are always acceptable:
 
 ```csharp
-if (a)
-	code ();
-```
+// Lovely.
+if (you.Like (it))
+	it.PutOn (ring);
 
-good:
-
-```csharp
-if (a) {
-	code ();
+// Acceptable.
+if (you.Like (it)) {
+	it.PutOn (ring);
 }
 ```
 
-Unless there are either multiple hierarchical conditions being used or that the condition cannot fit into a single line.
-
-good:﻿
+Very short statements may be one-liners, especially when the body is a `return`:
 
 ```csharp
+// Lovely.
+if (condition) return;
+
+// Wrong - too complex for a single line:
+if (people.All (p => p.IsAdmin)) return new AdminPage ();
+```
+
+Always use braces with nested or multi-line conditions:
+
+```csharp
+// Perfect.
 if (a) {
 	if (b) {
 		code ();
 	}
 }
-```
 
-acceptable:﻿
-
-```csharp
+// Acceptable.
 if (a) {
 	if (b)
 		code ();
 }
-```
 
-bad:
 
-```csharp
+// Wrong.
 if (a)
 	if (b)
 		code ();
