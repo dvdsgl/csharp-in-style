@@ -4,7 +4,6 @@
 * Keep code tidy and simple, but never cryptic.
 * Assume your reader knows C#.
 * Prefer clarity to 'performance'.
-* Prefer clarity to 'security'.
 * Prefer clarity to .NET dogma.
 * Write comments that people want to read.
 
