@@ -27,7 +27,7 @@ If you take issue with anything here, please open a pull request with your recom
 ```
 File Header
 
-Using Statements
+Using Directives
 
 Namespace Declaration
 
@@ -51,11 +51,11 @@ Type Declaration
 	Instance Methods
 ```
 
-### using Statements
+### using Directives
 
-Group using statements by common prefix, with shorter namespaces coming before longer ones, creating neat clusters of statements separated by single empty lines.
+Group using directives by common prefix, with shorter namespaces coming before longer ones, creating neat clusters of statements separated by single empty lines.
 
-Namespaces should be ordered from platform-neutral through platform-specific, with .NET namespaces first, then library or component namespaces, then Xamarin namespaces, then application namespaces:
+Namespaces should be ordered in increasing order of platform specificity, with .NET namespaces first, then library or component namespaces, then Xamarin namespaces, then application namespaces:
 
 ```csharp
 // Beautiful:
