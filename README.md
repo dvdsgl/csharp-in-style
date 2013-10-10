@@ -110,7 +110,7 @@ var entries = new Dictionary<string, int> () {
 };
 ```
 
-Structure initilizers in decreasing order by line length to create a neat pyramid shape:
+List initializers in increasing order of line length to create a neat pyramid shape:
 
 ```csharp
 // Very nice pyramid shape.
