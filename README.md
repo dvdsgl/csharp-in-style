@@ -6,7 +6,6 @@
 * Prefer clarity to .NET dogma.
 * Write comments that people want to read.
 * Do not reformat existing code to meet these guidelines.
-* 
 
 ## Specific Guides
 
