@@ -1,11 +1,12 @@
 ## Guiding Principles
 
 * Assume your reader knows C#.
-* Keep code tidy and simple, but never cryptic.
+* Verbosity does not imply readability, nor does clarity imply brevity. Keep code simple and clear.
 * Prefer clarity to 'performance'.
 * Prefer clarity to .NET dogma.
 * Write comments that people want to read.
 * Do not reformat existing code to meet these guidelines.
+* 
 
 ## Specific Guides
 
