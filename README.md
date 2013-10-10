@@ -22,6 +22,35 @@ If you take issue with anything here, please open a pull request with your recom
 
 ## General Guidelines
 
+### File Layout
+
+```
+File Header
+
+Using Statements
+
+Namespace Declaration
+
+Type Declaration
+	Constants
+
+	Static Fields
+
+	Static Constructor
+
+	Static Properties
+
+	Static Methods
+
+	Instance Fields
+
+	Instance Constructors
+	
+	Instance Properties
+	
+	Instance Methods
+```
+
 ### using Statements
 
 Group using statements by common prefix, with shorter namespaces coming before longer ones, creating neat clusters of statements separated by single empty lines.
