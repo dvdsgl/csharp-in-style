@@ -4,7 +4,7 @@
 * Verbose != readable. Keep code simple and clear.
 * Prefer clarity to 'performance'.
 * Prefer clarity to .NET dogma.
-* Write comments that people want to read.
+* Write comments that people want to read, with correct spelling and grammar.
 * Do not reformat existing code to meet these guidelines.
 
 ## Specific Guides
