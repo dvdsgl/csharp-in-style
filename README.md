@@ -423,21 +423,10 @@ else {
 }
 ```
 
-Classes and namespaces go like if statements, differently than methods:
-
-good:
+Namespaces, types, and methods all put braces on their own lines:
 
 ```csharp
-namespace N {
-	class X {
-		...
-	}
-}
-```
-
-bad:
-
-```csharp
+// Correct.
 namespace N
 {
 	class X
@@ -445,28 +434,24 @@ namespace N
 		...
 	}
 }
-```
 
-As an exception, when the type is _both_ generic _and_ the type parameters have constraints, the opening brace should go on a newline, and each constraint gets a separate line:
-
-```csharp
+Wrong - opening braces are not on their own lines.
 namespace N {
-
-	class WeakReference<T>
-		where T : class
-	{
+	class X {
 		...
 	}
 }
 ```
 
-So, to summarize:
+To summarize:
 
 | Statement	                 | Brace position |
 |--------------------------------|----------------|
-| Namespace                      | same line |
-| Type                           | same line for types without generic parameter constraints |
-| Method (including ctor)        | new line |
+| Namespace                      | new line |
+| Type                           | new line |
+| Methods                        | new line |
+| Constructors                   | new line |
+| Destructors                    | new line |
 | Properties                     | same line |
 | Control blocks (if, for...)    | same line |
 | Anonymous types and methods    | same line |
