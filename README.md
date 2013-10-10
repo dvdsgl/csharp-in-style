@@ -1,6 +1,8 @@
 ## Introduction
 
-These documents contain guidelines for writing consistent, lucid, enticing, modern C#. If you take issue with anything here, please open a pull request with your recommend changes and an argument for *and against* their adoption.
+These documents contain guidelines for writing consistent, lucid, enticing, modern C#.
+
+If you take issue with anything here, please open a pull request with your recommended changes and include an argument for *and against* their adoption.
 
 ## Guiding Principles
 
