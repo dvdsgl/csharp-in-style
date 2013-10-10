@@ -138,13 +138,13 @@ Every expression should be on a separate line, and every line should end with a 
 
 ```csharp
 // Very nice collection initializer.
-var entries = new Dictionary<string, int> () {
+var entries = new Dictionary<string, int> {
 	{ "key1", 1 },
 	{ "key2", 2 },
 };
 
 // Bad – multiple entries on one line.
-var entries = new Dictionary<string, int> () {
+var entries = new Dictionary<string, int> {
 	{ "key1", 1 }, { "key2", 2 },
 };
 ```
