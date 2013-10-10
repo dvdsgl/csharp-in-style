@@ -3,6 +3,8 @@
 * Use spaces and indentation precisely.
 * Keep code tidy and simple, but never cryptic.
 * Assume your reader knows C#.
+* Prefer clarity to performance.
+* Avoid premature optimization.
 
 ## Specific Guides
 
