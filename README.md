@@ -126,50 +126,39 @@ case 'b':
 }
 ```
 
-### Performance and Readability
-
-It is more important to be correct than to be fast.
-
-It is more important to be maintainable than to be fast.
-
-Fast code that is difficult to maintain is likely going to be looked down upon.
-
 ### Where to put spaces
 
-Use a space before an opening parenthesis when calling functions, or indexing, like this:
+Always put a space before every opening parenthesis, left square bracket, and left curly brace, even when calling methods or indexing. This is perhaps the most controversial style guideline in these documents, but we believe you will grow to like this style--it gives code plenty of room to breathe, especially on lines with many method calls.
+
 ```csharp
-method (a);
-b [10];
+// Beautiful. Try it, you'll like it.
+Initialize (database);	
+products [i];
+
+// Don't do this:
+Initialize(database);	
+products[i];
 ```
 
-Do not put a space after the opening parenthesis and the closing one, ie:
+However, do not put a space before the left angle bracket in a generic type instantiation:
 
 good:
 
 ```csharp
-method (a);	
-array [10];
+// Perfect.
+var scores = new List<int> ();
+
+// Incorrect.
+var scores = new List <int> ();
 ```
 
-bad:
+Do not put spaces inside parentheses, square brackets, or angle brackets:
 
 ```csharp
-method ( a );	
-array[ 10 ];
-```
-
-Do not put a space between the generic types, ie:
-
-good:
-
-```csharp
-var list = new List<int> ();
-```
-
-bad:
-
-```csharp
-var list = new List <int> ();
+// Wrong - spaces inside.
+Initialize ( database );	
+products [ i ];
+new List < int > ();
 ```
 
 Separate type parameters to generic types by a space:
@@ -180,6 +169,16 @@ var users = new Dictionary<UserId, User> ();
 
 // Worthless.
 var users = new Dictionary<UserId,User> ();
+```
+
+Put a space between the type and the indentifier what casting:
+
+```csharp
+// Great.
+var person = (Person) sender;
+
+// Bad.
+var person = (Person)sender;
 ```
 
 ### Where to put braces
