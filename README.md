@@ -557,36 +557,19 @@ void Method (string lpstrArgument)
 void Method (string my_string)
 ```
 
-Instance fields should use underline as a separator:
 
-good:
+### Instance Fields
 
-```csharp
-class X {
-	string my_string;
-	int    very_important_value;
-}
-```
-
-passable:
+Don't use  `m_` or `_` as prefixes for instance fields. Just use normal parameter naming conventions.
 
 ```csharp
-class X {
-      string myString;
-      int    veryImportantValue;
+// Perfect.
+class Person
+{
+	string name, email;
 }
+
 ```
-
-bad:
-
-```csharp
-class X {
-	int      _intval;
-	string   m_string;
-}
-```
-
-The use of "m_" and "_" as prefixes for instance members is highly discouraged.
 
 An exception to this rule is serializable classes. In this case, if we desire to have our serialized data be compatible with Microsoft's, we must use the same field name.
 
