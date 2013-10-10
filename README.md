@@ -95,7 +95,31 @@ database.UpdateUserIds (new [] { 1, 2, 3 });
 
 ### Object and Collection Initializers
 
-Use object and collection initializers. Every expression should be on a separate line, and every line should end with a comma `,`:
+Use them.
+
+For simple initializers, you may do a one-liner:
+
+```csharp
+// Perfect.
+var person = new Person ("Vinny") { Age = 50 };
+
+// Acceptable.
+var person = new Person ("Vinny") {
+	Age = 50,
+};
+```
+
+Omit the `()` when using parameterless constructors:
+
+```csharp
+// Perfect.
+var person = new Person { Name = "Bob", Age = 75 };
+
+// Wrong.
+var person = new Person () { Name = "Bob", Age = 75 };
+```
+
+Every expression should be on a separate line, and every line should end with a comma `,`:
 
 ```csharp
 // Very nice collection initializer.
