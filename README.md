@@ -2,7 +2,7 @@
 
 These documents contain guidelines for writing consistent, lucid, enticing, modern C#.
 
-If you take issue with anything here, please open a pull request with your recommended changes and include an argument for *and against* their adoption.
+If you take issue with anything here, please open a pull request with your recommended changes and include an argument for *and against* their adoption; explain the benefits of your proposed change, and also any drawbacks.
 
 ## Guiding Principles
 
