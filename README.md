@@ -36,19 +36,21 @@ Type Declaration
 
 	Static Fields
 
-	Static Constructor
-
 	Static Properties
+
+	Static Constructor
 
 	Static Methods
 
-	Instance Fields
+	Fields
+	
+	Properties
 
-	Instance Constructors
+	Constructors
 	
-	Instance Properties
+	Destructor
 	
-	Instance Methods
+	Methods
 ```
 
 ### using Directives
