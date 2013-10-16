@@ -126,7 +126,6 @@ Put a space before and after `:` when listing base classes and interfaces.
 class MyClass : BaseClass, IDoesThis {
 }
 
-
 // Wrong.
 class MyClass: BaseClass, IDoesThis {
 }
