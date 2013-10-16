@@ -87,6 +87,25 @@ Prune redundant namespaces aggressively.
 
 ### Declaring Types
 
+Leave an empty line before every type declaration.
+
+```csharp
+// Perfect.
+namespace MyApp {
+
+	class ImportantThing {
+		...
+	}
+}
+
+// Wrong - missing empty line before class declaration.
+namespace MyApp {
+	class ImportantThing {
+		...
+	}
+}
+```
+
 ```csharp
 class MyClass : BaseClass, IDoesThis {
 }
