@@ -147,6 +147,41 @@ enum StringSplitOptions {
 }
 ```
 
+## Member Decalarations
+
+Leave an empty line before every method, property, indexer, constructor, and destructor:
+
+```csharp
+class Person {
+
+	string name;
+	
+	public Person (string name) {
+		this.name = name;
+	}
+}
+```
+
+Automatic properties don't need to be preceeded by an empty line:
+
+```csharp
+class Person {
+
+	string Name { get; set; }
+	int Age { get; set; }
+	
+	...
+}
+```
+
+### Methods
+
+```csharp
+public async Task<string[]> Query<TDatabase> (User user, TDatabase database, Role role = Role.Admin)
+	: where TDatabase : IDatabase {
+}
+```
+
 ### Type Inference
 
 Use it. Less typing is almost always better than more typing, with some important exceptions.
