@@ -88,8 +88,7 @@ Prune redundant namespaces aggressively.
 ### Declaring Types
 
 ```csharp
-class MyClass : BaseClass, IDoesThis
-{
+class MyClass : BaseClass, IDoesThis {
 }
 ```
 
@@ -106,8 +105,7 @@ enum Edge { Left, Right, Bottom, Top }
 Larger enums should list entries on separate lines and always end in a comma:
 
 ```csharp
-enum StringSplitOptions
-{
+enum StringSplitOptions {
 	None = 0,
 	RemoveEmptyEntries = 1,
 }
@@ -220,16 +218,14 @@ case 'b':
 
 ### Where to put spaces
 
-Always put a space before every opening parenthesis, left square bracket, and left curly brace, even when calling methods or indexing. This is perhaps the most controversial style guideline in these documents, but we believe you will grow to like this style--it gives code plenty of room to breathe, especially on lines with many method calls.
+Always put a space before every opening parenthesis and left curly brace, even when calling methods. This is perhaps the most controversial style guideline in these documents, but we believe you will grow to like this style--it gives code plenty of room to breathe, especially on lines with many method calls.
 
 ```csharp
 // Beautiful. Try it, you'll like it.
-Initialize (database);	
-products [i];
+Initialize (database);
 
 // Don't do this:
 Initialize(database);	
-products[i];
 ```
 
 Do not put a space before the left angle bracket in a generic type:
@@ -247,8 +243,8 @@ Do not put spaces inside parentheses, square brackets, or angle brackets:
 ```csharp
 // Wrong - spaces inside.
 Initialize ( database );	
-products [ i ];
-new List < int > ();
+products[ i ];
+new List< int > ();
 ```
 
 Separate type parameters to generic types by a space:
@@ -333,24 +329,20 @@ if (a)
 		code ();
 ```
 
-When defining a method, use the C style for brace placement, that means, use a new line for the brace, like this:
+When defining a method or a property, keep the opening brace on the same line:
 
 good:
 
 ```csharp
 // Correct.
+void LaunchRockets () {
+}
+
+// Wrong.
 void LaunchRockets ()
 {
 }
 
-// Wrong.
-void LaunchRockets () {
-}
-```
-
-Properties and indexers are an exception, keep the brace on the same line as the property declaration. This makes it visually simple to distinguish them.
-
-```csharp
 // Perfect.
 double AverageAge {
 	get {
@@ -396,14 +388,12 @@ Empty methods should have the body of code using two lines, in consistency with 
 
 ```csharp
 // Good.
-void EmptyMethod ()
-{
+void EmptyMethod () {
 }
 
 // These are wrong.
 void EmptyMethod () {}
-void EmptyMethod () {
-}
+
 void EmptyMethod () 
 {}
 ```
@@ -412,8 +402,7 @@ Generic method type parameter constraints are one separate lines, one line per t
 
 ```csharp
 static bool TryParse<TEnum> (string value, out TEnum result)
-	where TEnum : struct
-{
+	where TEnum : struct {
 	...
 }
 ```
@@ -454,21 +443,21 @@ else {
 }
 ```
 
-Namespaces, types, and methods all put braces on their own lines:
+Namespaces, types, and methods all put braces on the same lines:
 
 ```csharp
 // Correct.
-namespace N
-{
-	class X
-	{
+namespace N {
+	class X {
 		...
 	}
 }
 
-Wrong - opening braces are not on their own lines.
-namespace N {
-	class X {
+Wrong - opening braces are not on the same lines.
+namespace N
+{
+	class X
+	{
 		...
 	}
 }
@@ -478,11 +467,11 @@ To summarize:
 
 | Statement	                 | Brace position |
 |--------------------------------|----------------|
-| Namespace                      | new line |
-| Type                           | new line |
-| Methods                        | new line |
-| Constructors                   | new line |
-| Destructors                    | new line |
+| Namespace                      | same line |
+| Type                           | same line |
+| Methods                        | same line |
+| Constructors                   | same line |
+| Destructors                    | same line |
 | Properties                     | same line |
 | Control blocks (if, for...)    | same line |
 | Anonymous types and methods    | same line |
@@ -494,69 +483,34 @@ When you need to write down parameters in multiple lines, indent the parameters 
 Good:
 
 ```csharp
-WriteLine (format, foo,
+Console.WriteLine (format, foo,
 		bar, baz);
 ```
 
-If you do not want to have parameters in the same line as the method invocation because you ar running out of space, you can indent the parameters in the next line, like this:
+If you do not want to have parameters in the same line as the method invocation because you are running out of space, you can indent all parameters on separate lines:
 
 Good:
 
 ```csharp
-WriteLine (
-		format, moved, too, long);
+Console.WriteLine (
+	format,
+	moved,
+	too,
+	long
+);
 ```
 
-Comma separators go at the end, like a good book, never at the beginning:
-
-Good:
-
-```csharp
-WriteLine (foo,
-		bar,
-		baz);
-```
-
-Atrocious:
-
-```csharp
-WriteLine (foo
-		, bar
-		, baz);
-```
-
-Use whitespace for clarity
-
-Use white space in expressions liberally, except in the presence of parenthesis:
+Use single spaces in expressions liberally:
 
 good:
 
 ```csharp
+// Good.
 if (a + 5 > method (blah () + 4))
-```
 
-bad:
-
-```csharp
+// Bad.
 if (a+5>method(blah()+4))
 ```
-
-### File headers
-
-For any new files, please use a descriptive introduction, like this:
-
-```csharp
-//
-// System.Comment.cs: Handles comments in System files.
-//
-// Author:
-//   Juan Perez (juan@address.com)
-//
-// Copyright (C) 2002 Address, Inc (http://www.address.com)
-//
-```
-
-If you are modyfing someone else's code, and your contribution is significant, please add yourself to the Authors list.
 
 ### Casing
 
@@ -565,12 +519,10 @@ Argument names should use the camel casing for identifiers, like this:
 good:
 
 ```csharp
+// Good.
 void Method (string myArgument)
-```
 
-bad:
-
-```csharp
+// Bad.
 void Method (string lpstrArgument)
 void Method (string my_string)
 ```
@@ -582,14 +534,12 @@ Don't use  `m_` or `_` as prefixes for instance fields. Just use normal paramete
 
 ```csharp
 // Perfect.
-class Person
-{
+class Person {
 	string name;
 }
 
 // Wrong.
-class Person
-{
+class Person {
 	string m_name;
 }
 ```
@@ -598,14 +548,12 @@ Don't write `private` for private members, as this is the default visibility in 
 
 ```csharp
 // Perfect.
-class Person
-{
+class Person {
 	string name;
 }
 
 // Wrong.
-class Person
-{
+class Person {
 	private string name;
 }
 ```
@@ -622,13 +570,11 @@ Good:
 class Foo {
 	int bar;
  
-	void Update (int newValue)
-	{
+	void Update (int newValue) {
 		bar = newValue;
 	}
  
-	void Clear ()
-	{
+	void Clear () {
 		Update ();
 	}
 }
@@ -640,13 +586,11 @@ Bad:
 class Foo {
 	int bar;
  
-	void Update (int newValue)
-	{
+	void Update (int newValue) {
 		this.bar = newValue;
 	}
  
-	void Clear ()
-	{
+	void Clear () {
 		this.Update ();
 	}
 }
@@ -660,8 +604,7 @@ Good:
 class Message {
 	char text;
  
-	public Message (string text)
-	{
+	public Message (string text) {
 		this.text = text;
 	}
 }
