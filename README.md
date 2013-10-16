@@ -19,9 +19,11 @@ If you take issue with anything here, please open a pull request with your recom
 
 * Indent with tabs.
 * Max line length is 100 columns.
-* Braces stay on the same line.
-* Mono-style method calls (e.g. `thing.Do (x)`).
 * Use spaces and empty lines precisely.
+* Braces stay on the same line.
+* Never put a space before `[`.
+* Always put a space before `{`.
+* Always put a space before `(` when calling a method (e.g. `thing.Do (x)`).
 
 ## Specific Guides
 
