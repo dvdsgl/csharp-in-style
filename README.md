@@ -23,7 +23,7 @@ If you take issue with anything here, please open a pull request with your recom
 * Braces stay on the same line.
 * Never put a space before `[`.
 * Always put a space before `{`.
-* Always put a space before `(` when calling a method (e.g. `thing.Do (x)`).
+* Always put a space before `(` except following another `(`.
 
 ## Specific Guides
 
