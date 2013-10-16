@@ -15,6 +15,14 @@ If you take issue with anything here, please open a pull request with your recom
 * Prefer clarity to .NET dogma.
 * Write comments that people want to read, with correct spelling and grammar.
 
+## The Rundown
+
+* Indent with tabs.
+* Max line length is 100 columns.
+* Braces stay on the same line.
+* Mono-style method calls (e.g. `thing.Do (x)`).
+* Use spaces and lines precisely.
+
 ## Specific Guides
 
 * [Comments](Comments.md)
@@ -640,7 +648,7 @@ class Message {
 
 ### Line length and alignment
 
-Line length: The line length for C# source code is 80 columns.
+Line length: The line length for C# source code is 100 columns.
 
 If your function declaration arguments go beyond this point, please place them on new lines, indenting by two tab stops (preferred), or align with the opening brace (acceptable). (**Rationale**: By not aligning to the opening brace, you can refactor/rename the method in the future without "screwing up" the indentation of all remaining parameters.)
 
