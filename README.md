@@ -183,6 +183,41 @@ public async Task<string[]> Query<TDatabase> (User user, TDatabase database, Rol
 }
 ```
 
+### Properties
+
+Declare automatic properties on a single line with the exact spacing shown below:
+
+```csharp
+// Perfect.
+string Name { get; set; }
+```
+
+Simple properties may define `get` and `set` on a single line each, with `get` first:
+
+```csharp
+// Perfect.
+string Name {
+	get { return name; }
+	set { name = value; }
+}
+```
+
+Also note the single spaces before and after `{`, and the space before `}`.
+
+Complex properties go like this:
+
+```csharp
+// Perfect.
+string Name {
+	get {
+		return name;
+	}
+	set {
+		name = value;
+	}
+}
+```
+
 ### Type Inference
 
 Use it. Less typing is almost always better than more typing, with some important exceptions.
