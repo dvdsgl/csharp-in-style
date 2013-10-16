@@ -87,19 +87,22 @@ Prune redundant namespaces aggressively.
 
 ### Declaring Types
 
-Leave an empty line before every type declaration.
+Leave an empty line before every type definition.
 
 ```csharp
 // Perfect.
 namespace MyApp {
 
+	enum Direction { Left, Right }
+	
 	class ImportantThing {
 		...
 	}
 }
 
-// Wrong - missing empty line before class declaration.
+// Wrong - missing empty line before type definitions.
 namespace MyApp {
+	enum Direction { Left, Right }
 	class ImportantThing {
 		...
 	}
