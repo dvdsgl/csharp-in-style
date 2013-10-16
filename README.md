@@ -109,12 +109,18 @@ namespace MyApp {
 }
 ```
 
+Put a space before and after `:` when listing base classes and interfaces.
+
 ```csharp
+// Perfect.
 class MyClass : BaseClass, IDoesThis {
 }
-```
 
-* Put a space before and after `:`.
+
+// Wrong.
+class MyClass: BaseClass, IDoesThis {
+}
+```
 
 #### Enums
 
