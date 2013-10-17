@@ -422,8 +422,11 @@ Very short statements may be one-liners, especially when the body is a `return`:
 // Lovely.
 if (condition) return;
 
-// Wrong - too complex for a single line:
+// Acceptable, but a little complex for a one-liner.
 if (people.All (p => p.IsAdmin)) return new AdminPage ();
+
+// Wrong - too complex for a single line:
+if (people.Where (p => p.IsAdmin).Average (p => p.Age) > 21) return DrinkDispenser.FireWater;
 ```
 
 Always use braces with nested or multi-line conditions:
