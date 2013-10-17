@@ -603,7 +603,7 @@ When your argument list grows too long, split your method invocation across mult
 ```csharp
 // Lovely.
 Console.WriteLine (
-	"Connect to {0} via {1} with extra data: {2} {3},
+	"Connect to {0} via {1} with extra data: {2} {3}",
 	database.Address,
 	database.ConnectionMethod.Description,
 	data.FirstPart,
@@ -616,7 +616,7 @@ It's also acceptable to put multiple arguments on a single line when they belong
 ```csharp
 // Acceptable.
 Console.WriteLine (
-	"Connect to {0} via {1} with extra data: {2} {3},
+	"Connect to {0} via {1} with extra data: {2} {3}",
 	database.Address,
 	database.ConnectionMethod.Description,
 	data.FirstPart, data.SecondPart
