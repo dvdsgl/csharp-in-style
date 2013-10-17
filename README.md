@@ -566,16 +566,17 @@ Namespaces, types, and methods all put braces on the same lines:
 
 ```csharp
 // Correct.
-namespace N {
-	class X {
+namespace MyApp {
+
+	class FluxCapacitor {
 		...
 	}
 }
 
-Wrong - opening braces are not on the same lines.
-namespace N
+// Wrong - opening braces are not on the same lines.
+namespace MyApp
 {
-	class X
+	class FluxCapacitor
 	{
 		...
 	}
