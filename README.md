@@ -596,28 +596,40 @@ To summarize:
 | Control blocks (if, for...)    | same line |
 | Anonymous types and methods    | same line |
 
-### Multiline Parameters
+### Long Argument Lists
 
-When you need to write down parameters in multiple lines, indent the parameters to be below the previous line parameters and indented two tab stops, like this:
-
-Good:
+When your argument list grows too long, split your method invocation across multiple lines, with the first argument on a new line after the opening parenthesis of the method invocation, the closing parenthesis of the invocation on its own line at the same indentation level as the line with the opening parenthesis. This style works especially well for methods with named parameters.
 
 ```csharp
-Console.WriteLine (format, foo,
-		bar, baz);
+// Lovely.
+Console.WriteLine (
+	"Connect to {0} via {1} with extra data: {2} {3},
+	database.Address,
+	database.ConnectionMethod.Description,
+	data.FirstPart,
+	data.SecondPart
+);
 ```
 
-If you do not want to have parameters in the same line as the method invocation because you are running out of space, you can indent all parameters on separate lines:
-
-Good:
+It's also acceptable to put multiple arguments on a single line when they belong together:
 
 ```csharp
+// Acceptable.
 Console.WriteLine (
-	format,
-	moved,
-	too,
-	long
+	"Connect to {0} via {1} with extra data: {2} {3},
+	database.Address,
+	database.ConnectionMethod.Description,
+	data.FirstPart, data.SecondPart
 );
+```
+
+When chaining method calls, each method call in the chain should be on a separate line indented once:
+
+```csharp
+void M () {
+	IEnumerable<int> items = Enumerable.Range (0, 100)
+		.Select (e => e * 2);
+}
 ```
 
 Use single spaces in expressions liberally:
@@ -727,63 +739,6 @@ class Message {
 	public Message (string text) {
 		this.text = text;
 	}
-}
-```
-
-### Line length and alignment
-
-Line length: The line length for C# source code is 100 columns.
-
-If your function declaration arguments go beyond this point, please place them on new lines, indenting by two tab stops (preferred), or align with the opening brace (acceptable). (**Rationale**: By not aligning to the opening brace, you can refactor/rename the method in the future without "screwing up" the indentation of all remaining parameters.)
-
-When aligning to the opening brace, use the same number of tabs used on the first line followed by enough spaces to align the arguments. This ensures that the arguments will remain aligned when viewed with a different tabsize. In the following example, the line that declares argc is indented with 2 tabs and 14 spaces:
-
-```csharp
-namespace N {
-	class X {
-		// Preferred
-		void Method1 (int arg, string argb,
-				int argc)
-		{
-		}
-
-		// acceptable
-		void Method2 (int arg, string argb,
-		              int argc)
-		{
-		}
-	}
-}
-```
-
-When a _condition_ for a branch or loop construct requires multiple lines, each line should be indented by two tab stops. (**Rationale**: it keeps the condition from looking like it's part of the body.) Complicated and nested expressions should use spaces to align with the originating expression. Boolean operators should be at the end of the line.
-
-```csharp
-void M ()
-{
-	if (string.IsNullOrEmpty (DataHost) &&
-			string.IsNullOrEmpty (DataPort) &&
-			string.IsNullOrEmpty (DataScheme))
-		DoSomething ();
-	if (!method.IsConstructor &&
-			method.Name == "SomeMethod" &&
-			(method.IsVirtual ||
-			 method.IsAbstract))
-		DoSomethingElse ();
-}
-```
-
-When invoking functions, the rule is different, the arguments are not aligned with the previous argument, instead they begin at two tab stops, like this. When "chaining" method calls, each "chain" should be on a new line (within reason) and each sub-expression should be indented one tab stop.
-
-```csharp
-void M ()
-{
-	MethodCall ("Very long string that will force",
-			"Next argument on the 8-tab pos",
-			"Just like this one");
-	IEnumerable<int> items = Enumerable.Range (0, 100)
-		.Where (e => (e % 2) == 0)
-		.Select (e => e*2);
 }
 ```
 
