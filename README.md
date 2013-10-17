@@ -34,6 +34,8 @@ If you take issue with anything here, please open a pull request with your recom
 
 ### File Layout
 
+Layout your `.cs` files like this:
+
 ```
 File Header
 
@@ -41,26 +43,36 @@ Using Directives
 
 Namespace Declaration
 
-Type Declaration
-	Constants
-
-	Static Fields
-
-	Static Properties
-
-	Static Constructor
-
-	Static Methods
-
-	Fields
+	Type Declaration
+		Constants
 	
-	Properties
+		Static Fields
+	
+		Static Properties
+	
+		Static Constructor
+	
+		Static Methods
+	
+		Fields
+		
+		Properties
+	
+		Constructors
+		
+		Destructor
+		
+		Methods
+```
 
-	Constructors
-	
-	Destructor
-	
-	Methods
+An exception to this layout is manual properties with a backing field used exclusively via the property; these members should occur in the file together in the properties section. If your backing field is accessed anywhere other than inside the property definition, stick to normal layout rules.
+
+```csharp
+string name;
+public string Name {
+	get { return name; }
+	set { name = value; }
+}
 ```
 
 ### using Directives
