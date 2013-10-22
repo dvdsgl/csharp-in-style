@@ -258,10 +258,10 @@ Omit the type when using array initializers:
 
 ```csharp
 // Could be better:
-database.UpdateUserIds (new int[] {1, 2, 3});
+database.UpdateUserIds (new int[] { 1, 2, 3 });
 
 // Better:
-database.UpdateUserIds (new [] {1, 2, 3});
+database.UpdateUserIds (new [] { 1, 2, 3 });
 ```
 
 ### Object and Collection Initializers
@@ -272,7 +272,7 @@ For simple initializers, you may do a one-liner:
 
 ```csharp
 // Perfect.
-var person = new Person ("Vinny") {Age = 50};
+var person = new Person ("Vinny") { Age = 50 };
 
 // Acceptable.
 var person = new Person ("Vinny") {
@@ -284,10 +284,10 @@ Omit the `()` when using parameterless constructors:
 
 ```csharp
 // Perfect.
-var person = new Person {Name = "Bob", Age = 75};
+var person = new Person { Name = "Bob", Age = 75 };
 
 // Wrong.
-var person = new Person () {Name = "Bob", Age = 75};
+var person = new Person () { Name = "Bob", Age = 75 };
 ```
 
 Every expression should be on a separate line, and every line should end with a comma `,`:
@@ -295,13 +295,13 @@ Every expression should be on a separate line, and every line should end with a 
 ```csharp
 // Very nice collection initializer.
 var entries = new Dictionary<string, int> {
-	{"key1", 1},
-	{"key2", 2},
+	{ "key1", 1 },
+	{ "key2", 2 },
 };
 
 // Bad – multiple entries on one line.
 var entries = new Dictionary<string, int> {
-	{"key1", 1}, {"key2", 2},
+	{ "key1", 1 }, { "key2", 2 },
 };
 ```
 
