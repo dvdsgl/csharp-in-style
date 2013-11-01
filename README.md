@@ -28,6 +28,7 @@ If you take issue with anything here, please open a pull request with your recom
 ## Specific Guides
 
 * [Comments](Comments.md)
+* [Naming](Naming.md)
 * [Lambdas](Lambdas.md)
 
 ## General Guidelines
