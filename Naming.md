@@ -1,4 +1,6 @@
-Constants
+# Naming
+
+## Constants
 
 Write constants in `CamelCase`, not `UPPERCASE`.
 
