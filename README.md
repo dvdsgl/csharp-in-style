@@ -175,7 +175,6 @@ Leave an empty line before every method, property, indexer, constructor, and des
 ```csharp
 class Person
 {
-
 	string name;
 	
 	public Person (string name)
@@ -188,8 +187,8 @@ class Person
 Automatic properties don't need to be preceeded by an empty line:
 
 ```csharp
-class Person {
-
+class Person
+{
 	string Name { get; set; }
 	int Age { get; set; }
 	
