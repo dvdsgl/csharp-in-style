@@ -114,19 +114,23 @@ Leave an empty line before every type definition.
 
 ```csharp
 // Perfect.
-namespace MyApp {
+namespace MyApp
+{
 
 	enum Direction { Left, Right }
 	
-	class ImportantThing {
+	class ImportantThing
+	{
 		...
 	}
 }
 
 // Wrong - missing empty line before type definitions.
-namespace MyApp {
+namespace MyApp
+{
 	enum Direction { Left, Right }
-	class ImportantThing {
+	class ImportantThing
+	{
 		...
 	}
 }
@@ -136,11 +140,13 @@ Put a space before and after `:` when listing base classes and interfaces.
 
 ```csharp
 // Perfect.
-class MyClass : BaseClass, IDoesThis {
+class MyClass : BaseClass, IDoesThis
+{
 }
 
 // Wrong.
-class MyClass: BaseClass, IDoesThis {
+class MyClass: BaseClass, IDoesThis
+{
 }
 ```
 
@@ -155,7 +161,8 @@ enum Edge { Left, Right, Bottom, Top }
 Larger enums should list entries on separate lines and always end in a comma:
 
 ```csharp
-enum StringSplitOptions {
+enum StringSplitOptions
+{
 	None = 0,
 	RemoveEmptyEntries = 1,
 }
@@ -166,11 +173,13 @@ enum StringSplitOptions {
 Leave an empty line before every method, property, indexer, constructor, and destructor:
 
 ```csharp
-class Person {
+class Person
+{
 
 	string name;
 	
-	public Person (string name) {
+	public Person (string name)
+	{
 		this.name = name;
 	}
 }
@@ -192,7 +201,8 @@ class Person {
 
 ```csharp
 public async Task<string[]> Query<TDatabase> (User user, TDatabase database, Role role = Role.Admin)
-	: where TDatabase : IDatabase {
+	: where TDatabase : IDatabase
+{
 }
 ```
 
@@ -452,20 +462,22 @@ if (a)
 		code ();
 ```
 
-When defining a method or a property, keep the opening brace on the same line:
-
-good:
+When defining a method, put the opening brace on its own line:
 
 ```csharp
 // Correct.
-void LaunchRockets () {
-}
-
-// Wrong.
 void LaunchRockets ()
 {
 }
 
+// Wrong.
+void LaunchRockets () {
+}
+```
+
+When defining a property, keep the opening brace on the same line:
+
+```csharp
 // Perfect.
 double AverageAge {
 	get {
@@ -511,7 +523,8 @@ Empty methods should have the body of code using two lines, in consistency with 
 
 ```csharp
 // Good.
-void EmptyMethod () {
+void EmptyMethod ()
+{
 }
 
 // These are wrong.
@@ -521,11 +534,12 @@ void EmptyMethod ()
 {}
 ```
 
-Generic method type parameter constraints are one separate lines, one line per type parameter, before the opening brace:
+Generic method type parameter constraints are on separate lines, one line per type parameter, indented once:
 
 ```csharp
 static bool TryParse<TEnum> (string value, out TEnum result)
-	where TEnum : struct {
+	where TEnum : struct
+{
 	...
 }
 ```
@@ -566,22 +580,22 @@ else {
 }
 ```
 
-Namespaces, types, and methods all put braces on the same lines:
+Namespaces, types, and methods all put braces on their own line:
 
 ```csharp
 // Correct.
-namespace MyApp {
+namespace MyApp
+{
 
-	class FluxCapacitor {
+	class FluxCapacitor
+	{
 		...
 	}
 }
 
-// Wrong - opening braces are not on the same lines.
-namespace MyApp
-{
-	class FluxCapacitor
-	{
+// Wrong - opening braces are not on their own lines.
+namespace MyApp {
+	class FluxCapacitor {
 		...
 	}
 }
@@ -591,11 +605,11 @@ To summarize:
 
 | Statement	                 | Brace position |
 |--------------------------------|----------------|
-| Namespace                      | same line |
-| Type                           | same line |
-| Methods                        | same line |
-| Constructors                   | same line |
-| Destructors                    | same line |
+| Namespace                      | new line |
+| Type                           | new line |
+| Methods                        | new line |
+| Constructors                   | new line |
+| Destructors                    | new line |
 | Properties                     | same line |
 | Control blocks (if, for...)    | same line |
 | Anonymous types and methods    | same line |
@@ -670,12 +684,14 @@ Don't use  `m_` or `_` as prefixes for instance fields. Just use normal paramete
 
 ```csharp
 // Perfect.
-class Person {
+class Person
+{
 	string name;
 }
 
 // Wrong.
-class Person {
+class Person
+{
 	string m_name;
 }
 ```
@@ -684,12 +700,14 @@ Don't write `private` for private members, as this is the default visibility in 
 
 ```csharp
 // Perfect.
-class Person {
+class Person
+{
 	string name;
 }
 
 // Wrong.
-class Person {
+class Person
+{
 	private string name;
 }
 ```
@@ -703,14 +721,17 @@ The use of "this." as a prefix in code is discouraged, it is mostly redundant. I
 Good:
 
 ```csharp
-class Foo {
+class Foo
+{
 	int bar;
  
-	void Update (int newValue) {
+	void Update (int newValue)
+	{
 		bar = newValue;
 	}
  
-	void Clear () {
+	void Clear ()
+	{
 		Update ();
 	}
 }
@@ -719,28 +740,33 @@ class Foo {
 Bad:
 
 ```csharp
-class Foo {
+class Foo
+{
 	int bar;
  
-	void Update (int newValue) {
+	void Update (int newValue)
+	{
 		this.bar = newValue;
 	}
  
-	void Clear () {
+	void Clear ()
+	{
 		this.Update ();
 	}
 }
 ```
 
-An exception is made for "this" when the parameter name is the same as an instance variable, this happens sometimes in constructors or if naming is difficult:
+An exception is made for `this` when the parameter name is the same as an instance variable, this happens sometimes in constructors or if naming is difficult:
 
 Good:
 
 ```csharp
-class Message {
+class Message
+{
 	char text;
  
-	public Message (string text) {
+	public Message (string text)
+	{
 		this.text = text;
 	}
 }
