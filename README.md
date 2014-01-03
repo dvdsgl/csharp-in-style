@@ -20,7 +20,7 @@ If you take issue with anything here, please open a pull request with your recom
 * Indent with tabs.
 * Max line length is 100 columns.
 * Use spaces and empty lines precisely.
-* Braces stay on the same line.
+* Braces generally go on their own lines.
 * Never put a space before `[`.
 * Always put a space before `{`.
 * Always put a space before `(` except following another `(`.
