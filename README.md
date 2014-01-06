@@ -124,7 +124,7 @@ namespace MyApp
 	}
 }
 
-// Wrong - missing empty line before type definitions.
+// Wrong - missing and empty line between type definitions.
 namespace MyApp
 {
 	enum Direction { Left, Right }
