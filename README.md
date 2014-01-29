@@ -49,19 +49,23 @@ Namespace Declaration
 	
 		Static Fields
 	
-		Static Properties
+		Static Auto-Properties
 	
 		Static Constructor
+		
+		Complex Static Properties
 	
 		Static Methods
 	
 		Fields
 		
-		Properties
+		Auto-Properties
 	
 		Constructors
 		
 		Destructor
+		
+		Complex Properties
 		
 		Methods
 ```
