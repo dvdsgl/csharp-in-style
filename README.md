@@ -315,7 +315,7 @@ var person = new Person { Name = "Bob", Age = 75 };
 var person = new Person() { Name = "Bob", Age = 75 };
 ```
 
-In general, expression should be on a separate line, and every line should end with a comma `,`:
+In general, each expression should be on a separate line, and every line should end with a comma `,`:
 
 ```csharp
 // Very nice collection initializer.
