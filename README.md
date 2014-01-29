@@ -23,7 +23,7 @@ If you take issue with anything here, please open a pull request with your recom
 * Braces generally go on their own lines.
 * Never put a space before `[`.
 * Always put a space before `{`.
-* Always put a space before `(` except following another `(`.
+* Always put a space before `(` except for method invocations or when following another `(`.
 
 ## Specific Guides
 
@@ -188,7 +188,7 @@ class Person
 {
 	string name;
 	
-	public Person (string name)
+	public Person(string name)
 	{
 		this.name = name;
 	}
@@ -210,7 +210,7 @@ class Person
 ### Methods
 
 ```csharp
-public async Task<string[]> Query<TDatabase> (User user, TDatabase database, Role role = Role.Admin)
+public async Task<string[]> Query<TDatabase>(User user, TDatabase database, Role role = Role.Admin)
 	: where TDatabase : IDatabase
 {
 }
@@ -259,30 +259,34 @@ Use `var` when the type is repeated on the right-hand side of the assignment:
 
 ```csharp
 // Perfect!
-var users = new Dictionary<UserId, User> ();
+var users = new Dictionary<UserId, User>();
 
 // Bloated.
-Dictionary<UserId, User> users = new Dictionary<UserId, User> ();
+Dictionary<UserId, User> users = new Dictionary<UserId, User>();
 ```
 
 Don't use `var` for capturing the return type of a method or property when the type is not evident:
 
 ```csharp
 // Horrendous.
-var things = Interpret (data);
+var things = Interpret(data);
 
 // Much better.
-HashMap<Thing> things = Interpret (data);
+HashMap<Thing> things = Interpret(data);
+
+// Even better.
+var things = InterpretAs<Thing>(data);
+
 ```
 
 Omit the type when using array initializers:
 
 ```csharp
 // Could be better:
-database.UpdateUserIds (new int[] { 1, 2, 3 });
+database.UpdateUserIds(new int[] { 1, 2, 3 });
 
 // Better:
-database.UpdateUserIds (new [] { 1, 2, 3 });
+database.UpdateUserIds(new [] { 1, 2, 3 });
 ```
 
 ### Object and Collection Initializers
@@ -293,10 +297,10 @@ For simple initializers, you may do a one-liner:
 
 ```csharp
 // Perfect.
-var person = new Person ("Vinny") { Age = 50 };
+var person = new Person("Vinny") { Age = 50 };
 
 // Acceptable.
-var person = new Person ("Vinny") {
+var person = new Person("Vinny") {
 	Age = 50,
 };
 ```
@@ -308,7 +312,7 @@ Omit the `()` when using parameterless constructors:
 var person = new Person { Name = "Bob", Age = 75 };
 
 // Wrong.
-var person = new Person () { Name = "Bob", Age = 75 };
+var person = new Person() { Name = "Bob", Age = 75 };
 ```
 
 Every expression should be on a separate line, and every line should end with a comma `,`:
@@ -356,45 +360,67 @@ case 'b':
 }
 ```
 
-### Where to put spaces
+### Where to put spaces[1]
 
-Always put a space before every opening parenthesis and left curly brace, even when calling methods. This is perhaps the most controversial style guideline in these documents, but we believe you will grow to like this style--it gives code plenty of room to breathe, especially on lines with many method calls.
+We prefer to put a space before an open parenthesis only in control flow statements, but not in normal method/delegate/lambda calls, or expressions. This makes method invocations stand out from simple logical groupings. For example, this is good:
 
 ```csharp
-// Beautiful. Try it, you'll like it.
-Initialize (database);
+// Flow control...
+if (awesome) ...
+foreach (var foo in foos) ...
+while (hazMonkeys) ...
 
-// Don't do this:
-Initialize(database);	
+// Logical grouping...
+var result = b * (4 + i);
+
+// Method invocation.
+Foo(database);
+Debug.Assert(5 + (3 * 4) && "laws of math are failing me");
+
+// Consider
+A = result ?? (int) compute (foo (b + 1));
+
+// At first glance it Looks very similar to:
+A = result ?? (int) compute (foo) (b + 1);
+
+
+// Whereas:
+A = result ?? (int) compute(foo(b + 1));
+
+// Looks more immediately distinct from
+A = result ?? (int) compute(foo)(b + 1);
 ```
+The reason for doing this is not completely arbitrary. This style makes control flow operators stand out more, and makes expressions flow better. The function call operator binds very tightly as a postfix operator. In some cases, such as when C# is embedded in Razor markup, inserting a space before an opening parenthesis will cause compilation to fail.
+
+[1] Adapted from http://llvm.org/docs/CodingStandards.html#spaces-before-parentheses
 
 Do not put a space before the left angle bracket in a generic type:
 
 ```csharp
 // Perfect.
-var scores = new List<int> ();
+var scores = new List<int>();
 
 // Incorrect.
-var scores = new List <int> ();
+var scores = new List <int>();
 ```
 
 Do not put spaces inside parentheses, square brackets, or angle brackets:
 
 ```csharp
 // Wrong - spaces inside.
-Initialize ( database );	
+Initialize( database );	
 products[ i ];
-new List< int > ();
+new List< int >();
 ```
 
 Separate type parameters to generic types by a space:
 
 ```csharp
 // Excellent.
-var users = new Dictionary<UserId, User> ();
+var users = new Dictionary<UserId, User>();
 
 // Worthless.
-var users = new Dictionary<UserId,User> ();
+var users = new Dictionary<UserId,User>();
 ```
 
 Put a space between the type and the indentifier what casting:
@@ -414,13 +440,13 @@ Inside a code block, put the opening brace on the same line as the statement:
 ```csharp
 // Lovely.
 if (you.Love (someone)) {
-	someone.SetFree ();
+	someone.SetFree();
 }
 
 // Wrong.
 if (you.Love (someone))
 {
-	someone.SetFree ();
+	someone.SetFree();
 }
 ```
 
@@ -429,11 +455,11 @@ Omitting braces for single line if statements is fine, however braces are always
 ```csharp
 // Lovely.
 if (you.Like (it))
-	it.PutOn (ring);
+	it.PutOn(ring);
 
 // Acceptable.
 if (you.Like (it)) {
-	it.PutOn (ring);
+	it.PutOn(ring);
 }
 ```
 
@@ -444,10 +470,10 @@ Very short statements may be one-liners, especially when the body is a `return`:
 if (condition) return;
 
 // Acceptable, but a little complex for a one-liner.
-if (people.All (p => p.IsAdmin)) return new AdminPage ();
+if (people.All(p => p.IsAdmin)) return new AdminPage();
 
 // Wrong - too complex for a single line:
-if (people.Where (p => p.IsAdmin).Average (p => p.Age) > 21) return DrinkDispenser.FireWater;
+if (people.Where(p => p.IsAdmin).Average(p => p.Age) > 21) return DrinkDispenser.FireWater;
 ```
 
 Always use braces with nested or multi-line conditions:
@@ -456,14 +482,14 @@ Always use braces with nested or multi-line conditions:
 // Perfect.
 if (a) {
 	if (b) {
-		code ();
+		code();
 	}
 }
 
 // Acceptable.
 if (a) {
 	if (b)
-		code ();
+		code();
 }
 
 // Wrong.
@@ -476,12 +502,12 @@ When defining a method, put the opening brace on its own line:
 
 ```csharp
 // Correct.
-void LaunchRockets ()
+void LaunchRockets()
 {
 }
 
 // Wrong.
-void LaunchRockets () {
+void LaunchRockets() {
 }
 ```
 
@@ -500,7 +526,7 @@ double AverageAge {
 double AverageAge
 {
 	get {
-		return people.Average (p => p.Age);
+		return people.Average(p => p.Age);
 	}
 }
 ```
@@ -533,21 +559,21 @@ Empty methods should have the body of code using two lines, in consistency with 
 
 ```csharp
 // Good.
-void EmptyMethod ()
+void EmptyMethod()
 {
 }
 
 // These are wrong.
-void EmptyMethod () {}
+void EmptyMethod() {}
 
-void EmptyMethod () 
+void EmptyMethod() 
 {}
 ```
 
 Generic method type parameter constraints are on separate lines, one line per type parameter, indented once:
 
 ```csharp
-static bool TryParse<TEnum> (string value, out TEnum result)
+static bool TryParse<TEnum>(string value, out TEnum result)
 	where TEnum : struct
 {
 	...
@@ -630,7 +656,7 @@ When your argument list grows too long, split your method invocation across mult
 
 ```csharp
 // Lovely.
-Console.WriteLine (
+Console.WriteLine(
 	"Connect to {0} via {1} with extra data: {2} {3}",
 	database.Address,
 	database.ConnectionMethod.Description,
@@ -643,7 +669,7 @@ It's also acceptable to put multiple arguments on a single line when they belong
 
 ```csharp
 // Acceptable.
-Console.WriteLine (
+Console.WriteLine(
 	"Connect to {0} via {1} with extra data: {2} {3}",
 	database.Address,
 	database.ConnectionMethod.Description,
@@ -654,9 +680,9 @@ Console.WriteLine (
 When chaining method calls, each method call in the chain should be on a separate line indented once:
 
 ```csharp
-void M () {
-	IEnumerable<int> items = Enumerable.Range (0, 100)
-		.Select (e => e * 2);
+void M() {
+	IEnumerable<int> items = Enumerable.Range(0, 100)
+		.Select(e => e * 2);
 }
 ```
 
@@ -666,7 +692,7 @@ good:
 
 ```csharp
 // Good.
-if (a + 5 > method (blah () + 4))
+if (a + 5 > method(blah() + 4))
 
 // Bad.
 if (a+5>method(blah()+4))
@@ -680,11 +706,11 @@ good:
 
 ```csharp
 // Good.
-void Method (string myArgument)
+void Method(string myArgument)
 
 // Bad.
-void Method (string lpstrArgument)
-void Method (string my_string)
+void Method(string lpstrArgument)
+void Method(string my_string)
 ```
 
 
@@ -735,14 +761,14 @@ class Foo
 {
 	int bar;
  
-	void Update (int newValue)
+	void Update(int newValue)
 	{
 		bar = newValue;
 	}
  
-	void Clear ()
+	void Clear()
 	{
-		Update ();
+		Update();
 	}
 }
 ```
@@ -754,14 +780,14 @@ class Foo
 {
 	int bar;
  
-	void Update (int newValue)
+	void Update(int newValue)
 	{
 		this.bar = newValue;
 	}
  
-	void Clear ()
+	void Clear()
 	{
-		this.Update ();
+		this.Update();
 	}
 }
 ```
@@ -775,7 +801,7 @@ class Message
 {
 	char text;
  
-	public Message (string text)
+	public Message(string text)
 	{
 		this.text = text;
 	}
@@ -784,4 +810,4 @@ class Message
 
 ## Credits
 
-This guide was adapted from the [Mono coding guidelines](http://www.mono-project.com/Coding_Guidelines) with inspiration from thoughtbot's excellent [guide for programming in style](https://github.com/thoughtbot/guides).
+This guide was adapted from the [Mono coding guidelines](http://www.mono-project.com/Coding_Guidelines) with inspiration from thoughtbot's excellent [guide for programming in style](https://github.com/thoughtbot/guides) and [The LLVM Coding Standards](http://llvm.org/docs/CodingStandards.html).
