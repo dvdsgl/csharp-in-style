@@ -315,7 +315,7 @@ var person = new Person { Name = "Bob", Age = 75 };
 var person = new Person() { Name = "Bob", Age = 75 };
 ```
 
-Every expression should be on a separate line, and every line should end with a comma `,`:
+In general, expression should be on a separate line, and every line should end with a comma `,`:
 
 ```csharp
 // Very nice collection initializer.
@@ -324,29 +324,19 @@ var entries = new Dictionary<string, int> {
 	{ "key2", 2 },
 };
 
-// Bad – multiple entries on one line.
+// Very nice object initializer.
+var contact = new Person {
+	Name = "David Siegel",
+	SocialSecurityNumber = 123456789,
+	Address = "1234 Montgomery Circle Drive East",
+};
+
+// Bad collection initializer – multiple entries on one line.
 var entries = new Dictionary<string, int> {
 	{ "key1", 1 }, { "key2", 2 },
 };
 ```
 
-List initializers in increasing order of line length to create a neat pyramid shape:
-
-```csharp
-// Very nice pyramid shape.
-var contact = new Person {
-	Name = "David Siegel",
-	SocialSecurityNumber = 123456789,
-	Address = "1234 Montgomery Circle Drive East",
-};
-
-// Wrong - inverted pyramids are unstable.
-var contact = new Person {
-	Address = "1234 Montgomery Circle Drive East",
-	SocialSecurityNumber = 123456789,
-	Name = "David Siegel",
-};
-```
 ### Indentation
 
 `switch` statements have the case at the same indentation as the `switch`:
