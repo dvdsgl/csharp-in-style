@@ -802,6 +802,49 @@ class Message
 }
 ```
 
+### Enumerations
+
+Don't use the [Flags] attribute, instead use a set of the enumeration. The usage of [Flags] violates the general principle that when all else is equal, prefer typed over untyped code. More specifically: the compiler cannot enforce the correct handling of enumerations with [Flags], since the attribute is not taken into account by the type system.
+
+Bad:
+```csharp
+[Flags]
+enum Inventory
+{
+	Hat,
+	Boots,
+	Wand
+}
+
+class Player
+{
+	Inventory Items
+	{
+		get;
+		set;
+	}
+}
+```
+
+Good:
+```csharp
+enum Item
+{
+	Hat,
+	Boots,
+	Wand
+}
+
+class Player
+{
+	ISet<Item> Items
+	{
+		get;
+		set;
+	}
+}
+```
+
 ## Credits
 
 This guide was adapted from the [Mono coding guidelines](http://www.mono-project.com/Coding_Guidelines) with inspiration from thoughtbot's excellent [guide for programming in style](https://github.com/thoughtbot/guides) and [The LLVM Coding Standards](http://llvm.org/docs/CodingStandards.html).
