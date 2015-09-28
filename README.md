@@ -838,20 +838,20 @@ class Player
 
 Good:
 ```csharp
-	enum Item
-	{
-		Hat,
-		Sword,
-		BigSword
-	}
+enum Item
+{
+	Hat,
+	Sword,
+	BigSword
+}
 
-	class Player
+class Player
+{
+	ISet<Item> Items
 	{
-		ISet<Item> Items
-		{
-			get;
-			set;
-		}
+		get;
+		set;
+	}
 
 	int CalculateDamage()
 	{
