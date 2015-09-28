@@ -804,7 +804,7 @@ class Message
 
 ### Enumerations
 
-Don't use the [Flags] attribute, instead use a set of the enumeration. The usage of [Flags] violates the general principle that when all else is equal, prefer typed over untyped code. More specifically: the compiler cannot enforce the correct handling of enumerations with [Flags], since the attribute is not taken into account by the type system.
+Don't use the [Flags] attribute, instead use a set of the enumeration. This adheres to the general principle that when all else is equal, prefer typed over untyped code.
 
 Bad:
 ```csharp
@@ -812,8 +812,8 @@ Bad:
 enum Inventory
 {
 	Hat,
-	Boots,
-	Wand
+	Sword,
+	BigSword
 }
 
 class Player
@@ -823,24 +823,44 @@ class Player
 		get;
 		set;
 	}
+
+	int CalculateDamage()
+	{
+		int result = 0;
+		if (Items.HasFlag(Inventory.Sword))
+			result += 2;
+		if (Items == Inventory.BigSword) //Was the omission of HasFlag intended?
+			result += 1;
+		return result;
+	}
 }
 ```
 
 Good:
 ```csharp
-enum Item
-{
-	Hat,
-	Boots,
-	Wand
-}
-
-class Player
-{
-	ISet<Item> Items
+	enum Item
 	{
-		get;
-		set;
+		Hat,
+		Sword,
+		BigSword
+	}
+
+	class Player
+	{
+		ISet<Item> Items
+		{
+			get;
+			set;
+		}
+
+	int CalculateDamage()
+	{
+		int result = 0;
+		if (Items.Contains(Item.Sword))
+			result += 2;
+		if (Items.SetEquals(new [] { Item.BigSword })) //Intention is clear.
+			result += 1;
+		return result;
 	}
 }
 ```
