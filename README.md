@@ -828,9 +828,9 @@ class Player
 	{
 		int result = 0;
 		if (Items.HasFlag(Inventory.Sword))
-			result += 2;
-		if (Items == Inventory.BigSword) //Was the omission of HasFlag intended?
 			result += 1;
+		if (Items == Inventory.BigSword) //Was the omission of HasFlag intended?
+			result += 2;
 		return result;
 	}
 }
@@ -857,9 +857,9 @@ Good:
 	{
 		int result = 0;
 		if (Items.Contains(Item.Sword))
-			result += 2;
-		if (Items.SetEquals(new [] { Item.BigSword })) //Intention is clear.
 			result += 1;
+		if (Items.SetEquals(new [] { Item.BigSword })) //Intention is clear.
+			result += 2;
 		return result;
 	}
 }
