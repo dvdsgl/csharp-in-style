@@ -61,3 +61,7 @@ class Player
 	}
 }
 ```
+
+### #if directive
+
+Don't use the #if directive. Instead, use ConditionalAttribute. See [this blog post](http://blogs.msmvps.com/peterritchie/2011/11/24/if-you-re-using-if-debug-you-re-doing-it-wrong/) for more information.
