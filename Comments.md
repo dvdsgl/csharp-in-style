@@ -64,4 +64,4 @@ for (int i = 0; i < int.MaxValue; i++)
 //    Console.WriteLine (i);
 ```
 
-You should avoid commenting out code anyway, prefering version control or other methods.
+You should avoid commenting out code anyway, preferring version control or other methods.
