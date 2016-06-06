@@ -183,7 +183,7 @@ enum StringSplitOptions
 }
 ```
 
-## Member Decalarations
+## Member Declarations
 
 Leave an empty line before every method, property, indexer, constructor, and destructor:
 
@@ -199,7 +199,7 @@ class Person
 }
 ```
 
-Automatic properties don't need to be preceeded by an empty line:
+Automatic properties don't need to be preceded by an empty line:
 
 ```csharp
 class Person
@@ -417,7 +417,7 @@ var users = new Dictionary<UserId, User>();
 var users = new Dictionary<UserId,User>();
 ```
 
-Put a space between the type and the indentifier what casting:
+Put a space between the type and the identifier what casting:
 
 ```csharp
 // Great.
