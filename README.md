@@ -44,30 +44,41 @@ Using Directives
 
 Namespace Declaration
 
-	Type Declaration
-		Constants
-	
-		Static Fields
-	
-		Static Auto-Properties
-	
-		Static Constructor
-		
-		Complex Static Properties
-	
-		Static Methods
-	
-		Fields
-		
-		Auto-Properties
-	
-		Constructors
-		
-		Destructor
-		
-		Complex Properties
-		
-		Methods
+    Type Declaration
+
+        Constants
+        Static Fields
+        Static Auto-Properties
+        Static Delegates
+        Static Events
+        Static Enums
+        Static Constructors
+        Static Complex Properties
+        Static Methods
+        Static Structs
+        Static Interfaces
+        Static Classes
+        Fields
+        Auto-Properties
+        Delegates
+        Events
+        Enums
+        Constructors
+        Finalizers (Destructors)
+        Complex Properties
+        Methods
+        Structs
+        Interfaces
+        Classes
+```
+
+Within each of these groups order by access:
+
+```
+public
+internal
+protected
+private
 ```
 
 An exception to this layout is manual properties with a backing field used exclusively via the property; these members should occur in the file together in the properties section. If your backing field is accessed anywhere other than inside the property definition, stick to normal layout rules.
