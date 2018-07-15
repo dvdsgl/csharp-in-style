@@ -444,12 +444,12 @@ Inside a code block, put the opening brace on the same line as the statement:
 
 ```csharp
 // Lovely.
-if (you.Love (someone)) {
+if (you.Love(someone)) {
 	someone.SetFree();
 }
 
 // Wrong.
-if (you.Love (someone))
+if (you.Love(someone))
 {
 	someone.SetFree();
 }
@@ -459,11 +459,11 @@ Omitting braces for single line if statements is fine, however braces are always
 
 ```csharp
 // Lovely.
-if (you.Like (it))
+if (you.Like(it))
 	it.PutOn(ring);
 
 // Acceptable.
-if (you.Like (it)) {
+if (you.Like(it)) {
 	it.PutOn(ring);
 }
 ```
